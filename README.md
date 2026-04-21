@@ -32,6 +32,26 @@ The dashboard highlights:
 - Python 3.10+  
 - tested with Python 3.13
 
+## Usage
+
+Install dependencies:
+
+```bash
+pip install -r requirements.txt
+```
+
+Run the dashboard:
+
+```bash
+PORT=5002 python3 app.py
+```
+
+Then open:
+
+```text
+http://127.0.0.1:5002
+```
+
 ## Project structure
 
 ```text
