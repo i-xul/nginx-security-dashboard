@@ -1,0 +1,268 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Nginx Security Dashboard</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
+</head>
+<body>
+    <header class="page-header">
+        <div class="container">
+            <h1>Nginx Security Dashboard</h1>
+            <p>Security-focused visualization for Nginx access log analysis reports.</p>
+        </div>
+    </header>
+
+    <main class="container">
+        {% if report.error %}
+            <section class="card error-card">
+                <h2>Report error</h2>
+                <p>{{ report.error }}</p>
+            </section>
+        {% endif %}
+
+        <section class="summary-grid">
+            <div class="card stat-card">
+                <h2>Total lines</h2>
+                <p class="stat-value">{{ summary.total_lines }}</p>
+            </div>
+            <div class="card stat-card">
+                <h2>Suspicious lines</h2>
+                <p class="stat-value">{{ summary.suspicious_lines }}</p>
+            </div>
+            <div class="card stat-card">
+                <h2>Request anomalies</h2>
+                <p class="stat-value">{{ summary.anomalies }}</p>
+            </div>
+            <div class="card stat-card">
+                <h2>Blocklist candidates</h2>
+                <p class="stat-value">{{ summary.blocklist_candidates }}</p>
+            </div>
+        </section>
+
+        <section class="grid-two">
+            <article class="card">
+                <h2>Top source IPs</h2>
+                {% if report.top_source_ips %}
+                    <table>
+                        <thead>
+                            <tr>
+                                <th>IP</th>
+                                <th>Requests</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            {% for ip, count in report.top_source_ips.items() %}
+                                <tr>
+                                    <td>{{ ip }}</td>
+                                    <td>{{ count }}</td>
+                                </tr>
+                            {% endfor %}
+                        </tbody>
+                    </table>
+                {% else %}
+                    <p>No source IP data available.</p>
+                {% endif %}
+            </article>
+
+            <article class="card">
+                <h2>Request categories</h2>
+                {% if report.categorized_lines %}
+                    <table>
+                        <thead>
+                            <tr>
+                                <th>Category</th>
+                                <th>Count</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            {% for category, count in report.categorized_lines.items() %}
+                                <tr>
+                                    <td>{{ category }}</td>
+                                    <td>{{ count }}</td>
+                                </tr>
+                            {% endfor %}
+                        </tbody>
+                    </table>
+                {% else %}
+                    <p>No category data available.</p>
+                {% endif %}
+            </article>
+        </section>
+
+        <section class="grid-two">
+            <article class="card">
+                <h2>Top paths</h2>
+                {% if report.top_paths %}
+                    <table>
+                        <thead>
+                            <tr>
+                                <th>Path</th>
+                                <th>Count</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            {% for path, count in report.top_paths.items() %}
+                                <tr>
+                                    <td class="path-cell">{{ path }}</td>
+                                    <td>{{ count }}</td>
+                                </tr>
+                            {% endfor %}
+                        </tbody>
+                    </table>
+                {% else %}
+                    <p>No path data available.</p>
+                {% endif %}
+            </article>
+
+            <article class="card">
+                <h2>Top suspicious paths</h2>
+                {% if report.top_suspicious_paths %}
+                    <table>
+                        <thead>
+                            <tr>
+                                <th>Path</th>
+                                <th>Hits</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            {% for path, count in report.top_suspicious_paths.items() %}
+                                <tr>
+                                    <td class="path-cell">{{ path }}</td>
+                                    <td>{{ count }}</td>
+                                </tr>
+                            {% endfor %}
+                        </tbody>
+                    </table>
+                {% else %}
+                    <p>No suspicious path data available.</p>
+                {% endif %}
+            </article>
+        </section>
+
+        <section class="grid-two">
+            <article class="card">
+                <h2>Suspicious keywords</h2>
+                {% if report.suspicious_keyword_hits %}
+                    <table>
+                        <thead>
+                            <tr>
+                                <th>Keyword</th>
+                                <th>Hits</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            {% for keyword, count in report.suspicious_keyword_hits.items() %}
+                                <tr>
+                                    <td>{{ keyword }}</td>
+                                    <td>{{ count }}</td>
+                                </tr>
+                            {% endfor %}
+                        </tbody>
+                    </table>
+                {% else %}
+                    <p>No suspicious keyword data available.</p>
+                {% endif %}
+            </article>
+
+            <article class="card">
+                <h2>Request anomalies</h2>
+                {% if report.request_anomalies %}
+                    <table>
+                        <thead>
+                            <tr>
+                                <th>Anomaly type</th>
+                                <th>Count</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            {% for anomaly, count in report.request_anomalies.items() %}
+                                <tr>
+                                    <td>{{ anomaly }}</td>
+                                    <td>{{ count }}</td>
+                                </tr>
+                            {% endfor %}
+                        </tbody>
+                    </table>
+                {% else %}
+                    <p>No anomaly data available.</p>
+                {% endif %}
+            </article>
+        </section>
+
+        <section class="grid-two">
+            <article class="card">
+                <h2>Blocklist candidates</h2>
+                {% if report.blocklist_candidates %}
+                    <table>
+                        <thead>
+                            <tr>
+                                <th>IP</th>
+                                <th>Requests</th>
+                                <th>Suspicious hits</th>
+                                <th>Score</th>
+                                <th>Reason</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            {% for ip, data in report.blocklist_candidates.items() %}
+                                <tr>
+                                    <td>{{ ip }}</td>
+                                    <td>{{ data.requests }}</td>
+                                    <td>{{ data.suspicious_hits }}</td>
+                                    <td>{{ data.score }}</td>
+                                    <td>{{ data.reason }}</td>
+                                </tr>
+                            {% endfor %}
+                        </tbody>
+                    </table>
+                {% else %}
+                    <p>No blocklist candidates available.</p>
+                {% endif %}
+            </article>
+
+            <article class="card">
+                <h2>Top suspicious IP scores</h2>
+                {% if report.ip_scores %}
+                    <table>
+                        <thead>
+                            <tr>
+                                <th>IP</th>
+                                <th>Requests</th>
+                                <th>Suspicious hits</th>
+                                <th>Score</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            {% for ip, data in report.ip_scores.items() %}
+                                <tr>
+                                    <td>{{ ip }}</td>
+                                    <td>{{ data.requests }}</td>
+                                    <td>{{ data.suspicious_hits }}</td>
+                                    <td>{{ data.score }}</td>
+                                </tr>
+                            {% endfor %}
+                        </tbody>
+                    </table>
+                {% else %}
+                    <p>No IP scoring data available.</p>
+                {% endif %}
+            </article>
+        </section>
+
+        <section class="card">
+            <h2>Unknown path examples</h2>
+            {% if report.unknown_path_examples %}
+                <ul class="log-list">
+                    {% for line in report.unknown_path_examples %}
+                        <li><code>{{ line }}</code></li>
+                    {% endfor %}
+                </ul>
+            {% else %}
+                <p>No unknown path examples available.</p>
+            {% endif %}
+        </section>
+    </main>
+</body>
+</html>
