@@ -111,4 +111,22 @@ code {
     .grid-two {
         grid-template-columns: 1fr;
     }
+/* === Security highlighting === */
+
+.high-risk {
+    background-color: #ffe5e5;
+    color: #b00020;
+    font-weight: bold;
+}
+
+.medium-risk {
+    background-color: #fff4e5;
+    color: #8a5300;
+}
+
+.suspicious-path {
+    color: #b00020;
+    font-weight: bold;
+}
+    
 }
