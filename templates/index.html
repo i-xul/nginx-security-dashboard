@@ -53,7 +53,7 @@
                             </tr>
                         </thead>
                         <tbody>
-                            {% for ip, count in report.top_source_ips.items() %}
+                            {% for ip, count in report.top_source_ips %}
                                 <tr>
                                     <td>{{ ip }}</td>
                                     <td>{{ count }}</td>
@@ -77,7 +77,7 @@
                             </tr>
                         </thead>
                         <tbody>
-                            {% for category, count in report.categorized_lines.items() %}
+                            {% for category, count in report.categorized_lines %}
                                 <tr>
                                     <td>{{ category }}</td>
                                     <td>{{ count }}</td>
@@ -103,7 +103,7 @@
                             </tr>
                         </thead>
                         <tbody>
-                            {% for path, count in report.top_paths.items() %}
+                            {% for path, count in report.top_paths %}
                                 <tr>
                                     <td class="path-cell">{{ path }}</td>
                                     <td>{{ count }}</td>
@@ -127,7 +127,7 @@
                             </tr>
                         </thead>
                         <tbody>
-                            {% for path, count in report.top_suspicious_paths.items() %}
+                            {% for path, count in report.top_suspicious_paths %}
                                 <tr>
                                     <td class="path-cell">{{ path }}</td>
                                     <td>{{ count }}</td>
@@ -153,7 +153,7 @@
                             </tr>
                         </thead>
                         <tbody>
-                            {% for keyword, count in report.suspicious_keyword_hits.items() %}
+                            {% for keyword, count in report.suspicious_keyword_hits %}
                                 <tr>
                                     <td>{{ keyword }}</td>
                                     <td>{{ count }}</td>
@@ -177,7 +177,7 @@
                             </tr>
                         </thead>
                         <tbody>
-                            {% for anomaly, count in report.request_anomalies.items() %}
+                            {% for anomaly, count in report.request_anomalies %}
                                 <tr>
                                     <td>{{ anomaly }}</td>
                                     <td>{{ count }}</td>
@@ -206,7 +206,7 @@
                             </tr>
                         </thead>
                         <tbody>
-                            {% for ip, data in report.blocklist_candidates.items() %}
+                            {% for ip, data in report.blocklist_candidates %}
                                 <tr>
                                     <td>{{ ip }}</td>
                                     <td>{{ data.requests }}</td>
@@ -235,7 +235,7 @@
                             </tr>
                         </thead>
                         <tbody>
-                            {% for ip, data in report.ip_scores.items() %}
+                            {% for ip, data in report.ip_scores %}
                                 <tr>
                                     <td>{{ ip }}</td>
                                     <td>{{ data.requests }}</td>
