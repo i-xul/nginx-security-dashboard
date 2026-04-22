@@ -113,20 +113,25 @@ code {
     }
 /* === Security highlighting === */
 
-.high-risk {
-    background-color: #ffe5e5;
-    color: #b00020;
-    font-weight: bold;
+.high-risk,
+tr.high-risk td,
+td.high-risk {
+    background-color: #ffb3b3 !important;
+    color: #7a0014 !important;
+    font-weight: 700 !important;
 }
 
-.medium-risk {
-    background-color: #fff4e5;
-    color: #8a5300;
+.medium-risk,
+td.medium-risk {
+    background-color: #ffd699 !important;
+    color: #6b3e00 !important;
+    font-weight: 700 !important;
 }
 
-.suspicious-path {
-    color: #b00020;
-    font-weight: bold;
+.suspicious-path,
+td.suspicious-path {
+    color: #b00020 !important;
+    font-weight: 700 !important;
 }
     
 }
