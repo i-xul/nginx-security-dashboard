@@ -1,6 +1,7 @@
 #!/usr/bin/env python3
 
 import json
+import os
 from pathlib import Path
 from typing import Any
 
@@ -42,6 +43,47 @@ def count_request_anomalies(report: dict[str, Any]) -> int:
     return sum(anomalies.values()) if isinstance(anomalies, dict) else 0
 
 
+def sort_dict_by_value_desc(data: dict[str, Any]) -> list[tuple[str, Any]]:
+    """Sort a flat dictionary by value descending."""
+    if not isinstance(data, dict):
+        return []
+    return sorted(data.items(), key=lambda item: item[1], reverse=True)
+
+
+def sort_ip_scores(data: dict[str, dict[str, Any]]) -> list[tuple[str, dict[str, Any]]]:
+    """Sort IP scores by score desc, suspicious_hits desc, requests desc."""
+    if not isinstance(data, dict):
+        return []
+
+    return sorted(
+        data.items(),
+        key=lambda item: (
+            item[1].get("score", 0),
+            item[1].get("suspicious_hits", 0),
+            item[1].get("requests", 0),
+        ),
+        reverse=True,
+    )
+
+
+def sort_blocklist_candidates(
+    data: dict[str, dict[str, Any]]
+) -> list[tuple[str, dict[str, Any]]]:
+    """Sort blocklist candidates by score desc, suspicious_hits desc, requests desc."""
+    if not isinstance(data, dict):
+        return []
+
+    return sorted(
+        data.items(),
+        key=lambda item: (
+            item[1].get("score", 0),
+            item[1].get("suspicious_hits", 0),
+            item[1].get("requests", 0),
+        ),
+        reverse=True,
+    )
+
+
 @app.route("/")
 def index():
     report = load_report()
@@ -53,17 +95,28 @@ def index():
         "blocklist_candidates": len(report.get("blocklist_candidates", {})),
     }
 
+    sorted_report = {
+        "error": report.get("error"),
+        "total_lines": report.get("total_lines", 0),
+        "categorized_lines": sort_dict_by_value_desc(report.get("categorized_lines", {})),
+        "top_source_ips": sort_dict_by_value_desc(report.get("top_source_ips", {})),
+        "top_paths": sort_dict_by_value_desc(report.get("top_paths", {})),
+        "top_suspicious_paths": sort_dict_by_value_desc(report.get("top_suspicious_paths", {})),
+        "suspicious_keyword_hits": sort_dict_by_value_desc(report.get("suspicious_keyword_hits", {})),
+        "request_anomalies": sort_dict_by_value_desc(report.get("request_anomalies", {})),
+        "ip_scores": sort_ip_scores(report.get("ip_scores", {})),
+        "blocklist_candidates": sort_blocklist_candidates(report.get("blocklist_candidates", {})),
+        "unknown_path_examples": report.get("unknown_path_examples", []),
+    }
+
     return render_template(
         "index.html",
-        report=report,
+        report=sorted_report,
         summary=summary,
     )
 
 
 if __name__ == "__main__":
-    import os
-
     port = int(os.environ.get("PORT", 5002))
     host = os.environ.get("HOST", "0.0.0.0")
-
     app.run(debug=True, host=host, port=port)
