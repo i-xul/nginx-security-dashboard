@@ -47,14 +47,14 @@
                 {% if report.top_source_ips %}
                     <table>
                         <thead>
-                            <tr class="high-risk">
+                            <tr>
                                 <th>IP</th>
                                 <th>Requests</th>
                             </tr>
                         </thead>
                         <tbody>
                             {% for ip, count in report.top_source_ips %}
-                                <tr class="high-risk">
+                                <tr>
                                     <td>{{ ip }}</td>
                                     <td>{{ count }}</td>
                                 </tr>
@@ -71,14 +71,14 @@
                 {% if report.categorized_lines %}
                     <table>
                         <thead>
-                            <tr class="high-risk">
+                            <tr>
                                 <th>Category</th>
                                 <th>Count</th>
                             </tr>
                         </thead>
                         <tbody>
                             {% for category, count in report.categorized_lines %}
-                                <tr class="high-risk">
+                                <tr>
                                     <td>{{ category }}</td>
                                     <td>{{ count }}</td>
                                 </tr>
@@ -97,15 +97,15 @@
                 {% if report.top_paths %}
                     <table>
                         <thead>
-                            <tr class="high-risk">
+                            <tr>
                                 <th>Path</th>
                                 <th>Count</th>
                             </tr>
                         </thead>
                         <tbody>
                             {% for path, count in report.top_paths %}
-                                <tr class="high-risk">
-                                    <td class="path-cell suspicious-path">{{ path }}</td>
+                                <tr>
+                                    <td class="path-cell">{{ path }}</td>
                                     <td>{{ count }}</td>
                                 </tr>
                             {% endfor %}
@@ -121,14 +121,14 @@
                 {% if report.top_suspicious_paths %}
                     <table>
                         <thead>
-                            <tr class="high-risk">
+                            <tr>
                                 <th>Path</th>
                                 <th>Hits</th>
                             </tr>
                         </thead>
                         <tbody>
                             {% for path, count in report.top_suspicious_paths %}
-                                <tr class="high-risk">
+                                <tr>
                                     <td class="path-cell suspicious-path">{{ path }}</td>
                                     <td>{{ count }}</td>
                                 </tr>
@@ -147,14 +147,14 @@
                 {% if report.suspicious_keyword_hits %}
                     <table>
                         <thead>
-                            <tr class="high-risk">
+                            <tr>
                                 <th>Keyword</th>
                                 <th>Hits</th>
                             </tr>
                         </thead>
                         <tbody>
                             {% for keyword, count in report.suspicious_keyword_hits %}
-                                <tr class="high-risk">
+                                <tr>
                                     <td>{{ keyword }}</td>
                                     <td>{{ count }}</td>
                                 </tr>
@@ -171,14 +171,14 @@
                 {% if report.request_anomalies %}
                     <table>
                         <thead>
-                            <tr class="high-risk">
+                            <tr>
                                 <th>Anomaly type</th>
                                 <th>Count</th>
                             </tr>
                         </thead>
                         <tbody>
                             {% for anomaly, count in report.request_anomalies %}
-                                <tr class="high-risk">
+                                <tr>
                                     <td>{{ anomaly }}</td>
                                     <td>{{ count }}</td>
                                 </tr>
@@ -197,7 +197,7 @@
                 {% if report.blocklist_candidates %}
                     <table>
                         <thead>
-                            <tr class="high-risk">
+                            <tr>
                                 <th>IP</th>
                                 <th>Requests</th>
                                 <th>Suspicious hits</th>
@@ -227,7 +227,7 @@
                 {% if report.ip_scores %}
                     <table>
                         <thead>
-                            <tr class="high-risk">
+                            <tr>
                                 <th>IP</th>
                                 <th>Requests</th>
                                 <th>Suspicious hits</th>
@@ -236,11 +236,13 @@
                         </thead>
                         <tbody>
                             {% for ip, data in report.ip_scores %}
-                                <tr class="high-risk">
+                                <tr>
                                     <td>{{ ip }}</td>
                                     <td>{{ data.requests }}</td>
                                     <td>{{ data.suspicious_hits }}</td>
-                                    <td>{{ data.score }}</td>
+                                    <td class="{% if data.score >= 0.8 %}high-risk{% elif data.score >= 0.3 %}medium-risk{% endif %}">
+                                        {{ data.score }}
+                                    </td>
                                 </tr>
                             {% endfor %}
                         </tbody>
