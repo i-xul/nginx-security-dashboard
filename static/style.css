@@ -135,6 +135,7 @@ td.suspicious-path {
     .grid-two {
         grid-template-columns: 1fr;
     }
+}
 
 .page-header {
     background: #ff00aa !important;
