@@ -44,6 +44,46 @@
     </div>
 </section>
 
+        <section class="card last-7-card">
+    <h2>Last 7 days overview</h2>
+
+    {% if last_7_days.latest_timestamp %}
+        <p class="section-note">
+            Based on latest log timestamp: {{ last_7_days.latest_timestamp }}
+        </p>
+
+        <div class="mini-summary-grid">
+            <div class="mini-stat">
+                <span>Recent IPs</span>
+                <strong>{{ last_7_days.recent_ip_count }}</strong>
+            </div>
+            <div class="mini-stat">
+                <span>Suspicious entries</span>
+                <strong>{{ last_7_days.suspicious_count }}</strong>
+            </div>
+            <div class="mini-stat">
+                <span>Anomalies</span>
+                <strong>{{ last_7_days.anomaly_count }}</strong>
+            </div>
+        </div>
+
+        <h3>Recent entries</h3>
+        <ul class="log-list">
+            {% for entry in last_7_days.entries %}
+                <li>
+                    <strong>{{ entry.ip }}</strong>
+                    <span class="entry-type">{{ entry.type }}</span>
+                    <span class="entry-time">{{ entry.last_seen }}</span>
+                    <br>
+                    <code>{{ entry.line }}</code>
+                </li>
+            {% endfor %}
+        </ul>
+    {% else %}
+        <p>No timestamped recent activity available.</p>
+    {% endif %}
+</section>
+
         <section class="card">
     <h2>Last seen IPs (recent activity)</h2>
 
