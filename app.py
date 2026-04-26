@@ -3,7 +3,7 @@
 import json
 import os
 import re
-from datetime import datetime
+from datetime import datetime, timedelta
 from pathlib import Path
 from typing import Any
 from typing import Optional
@@ -101,6 +101,70 @@ def build_last_seen_ips(report: dict[str, Any], limit: int = 10) -> list[dict[st
         reverse=True,
     )[:limit]
 
+def build_last_7_days_overview(report: dict[str, Any]) -> dict[str, Any]:
+    """Build a recent activity overview based on the newest timestamp in the report."""
+    candidate_entries = []
+
+    for entry in report.get("suspicious_lines", []):
+        line = entry.get("line")
+        if line:
+            candidate_entries.append({
+                "type": "suspicious",
+                "line": line,
+                "ip": entry.get("ip", extract_ip_from_log_line(line)),
+            })
+
+    for line in report.get("unknown_path_examples", []):
+        candidate_entries.append({
+            "type": "anomaly",
+            "line": line,
+            "ip": extract_ip_from_log_line(line),
+        })
+
+    parsed_entries = []
+
+    for entry in candidate_entries:
+        timestamp = parse_nginx_timestamp(entry["line"])
+        if not timestamp:
+            continue
+
+        parsed_entries.append({
+            **entry,
+            "timestamp": timestamp,
+            "last_seen": timestamp.strftime("%Y-%m-%d %H:%M:%S %z"),
+        })
+
+    if not parsed_entries:
+        return {
+            "recent_ip_count": 0,
+            "suspicious_count": 0,
+            "anomaly_count": 0,
+            "latest_timestamp": None,
+            "entries": [],
+        }
+
+    latest_timestamp = max(entry["timestamp"] for entry in parsed_entries)
+    cutoff = latest_timestamp - timedelta(days=7)
+
+    recent_entries = [
+        entry for entry in parsed_entries
+        if entry["timestamp"] >= cutoff
+    ]
+
+    recent_ips = {entry["ip"] for entry in recent_entries}
+
+    return {
+        "recent_ip_count": len(recent_ips),
+        "suspicious_count": sum(1 for entry in recent_entries if entry["type"] == "suspicious"),
+        "anomaly_count": sum(1 for entry in recent_entries if entry["type"] == "anomaly"),
+        "latest_timestamp": latest_timestamp.strftime("%Y-%m-%d %H:%M:%S %z"),
+        "entries": sorted(
+            recent_entries,
+            key=lambda item: item["timestamp"],
+            reverse=True,
+        )[:15],
+    }
+
 
 def sort_dict_by_value_desc(data: dict[str, Any]) -> list[tuple[str, Any]]:
     """Sort a flat dictionary by value descending."""
@@ -171,6 +235,7 @@ def index():
     recent_suspicious = report.get("suspicious_lines", [])[-10:]
     recent_unknown = report.get("unknown_path_examples", [])[-10:]
     last_seen_ips = build_last_seen_ips(report)
+    last_7_days = build_last_7_days_overview(report)
     
     return render_template(
         "index.html",
@@ -179,6 +244,7 @@ def index():
         recent_suspicious=recent_suspicious,
         recent_unknown=recent_unknown,
         last_seen_ips=last_seen_ips,
+        last_7_days=last_7_days,
     )
 
 
