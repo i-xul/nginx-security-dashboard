@@ -2,6 +2,8 @@
 
 import json
 import os
+import re
+from datetime import datetime
 from pathlib import Path
 from typing import Any
 
@@ -41,6 +43,62 @@ def count_request_anomalies(report: dict[str, Any]) -> int:
     """Return total anomaly count from the anomaly dictionary."""
     anomalies = report.get("request_anomalies", {})
     return sum(anomalies.values()) if isinstance(anomalies, dict) else 0
+
+def parse_nginx_timestamp(line: str) -> datetime | None:
+    """Parse timestamp from an Nginx access log line."""
+    match = re.search(r"\[([^\]]+)\]", line)
+    if not match:
+        return None
+
+    timestamp = match.group(1)
+
+    try:
+        return datetime.strptime(timestamp, "%d/%b/%Y:%H:%M:%S %z")
+    except ValueError:
+        return None
+
+
+def extract_ip_from_log_line(line: str) -> str:
+    """Extract source IP from the beginning of a log line."""
+    parts = line.split()
+    return parts[0] if parts else "unknown"
+
+
+def build_last_seen_ips(report: dict[str, Any], limit: int = 10) -> list[dict[str, Any]]:
+    """Build a list of recently seen IPs based on suspicious and unknown lines."""
+    seen_ips: dict[str, dict[str, Any]] = {}
+
+    candidate_lines = []
+
+    for entry in report.get("suspicious_lines", []):
+        line = entry.get("line")
+        if line:
+            candidate_lines.append(line)
+
+    candidate_lines.extend(report.get("unknown_path_examples", []))
+
+    for line in candidate_lines:
+        timestamp = parse_nginx_timestamp(line)
+        ip = extract_ip_from_log_line(line)
+
+        if not timestamp:
+            continue
+
+        current = seen_ips.get(ip)
+
+        if current is None or timestamp > current["timestamp"]:
+            seen_ips[ip] = {
+                "ip": ip,
+                "timestamp": timestamp,
+                "last_seen": timestamp.strftime("%Y-%m-%d %H:%M:%S %z"),
+                "line": line,
+            }
+
+    return sorted(
+        seen_ips.values(),
+        key=lambda item: item["timestamp"],
+        reverse=True,
+    )[:limit]
 
 
 def sort_dict_by_value_desc(data: dict[str, Any]) -> list[tuple[str, Any]]:
@@ -111,6 +169,7 @@ def index():
 
     recent_suspicious = report.get("suspicious_lines", [])[-10:]
     recent_unknown = report.get("unknown_path_examples", [])[-10:]
+    last_seen_ips = build_last_seen_ips(report)
     
     return render_template(
         "index.html",
@@ -118,6 +177,7 @@ def index():
         summary=summary,
         recent_suspicious=recent_suspicious,
         recent_unknown=recent_unknown,
+        last_seen_ips=last_seen_ips,
     )
 
 
