@@ -23,23 +23,49 @@
         {% endif %}
 
         <section class="summary-grid">
-            <div class="card stat-card">
-                <h2>Total lines</h2>
-                <p class="stat-value">{{ summary.total_lines }}</p>
-            </div>
-            <div class="card stat-card">
-                <h2>Suspicious lines</h2>
-                <p class="stat-value">{{ summary.suspicious_lines }}</p>
-            </div>
-            <div class="card stat-card">
-                <h2>Request anomalies</h2>
-                <p class="stat-value">{{ summary.anomalies }}</p>
-            </div>
-            <div class="card stat-card">
-                <h2>Blocklist candidates</h2>
-                <p class="stat-value">{{ summary.blocklist_candidates }}</p>
-            </div>
-        </section>
+    <div class="card stat-card stat-total">
+        <span class="stat-label">Total lines</span>
+        <p class="stat-value">{{ summary.total_lines }}</p>
+    </div>
+    <div class="card stat-card stat-warning">
+        <span class="stat-label">Suspicious lines</span>
+        <p class="stat-value">{{ summary.suspicious_lines }}</p>
+    </div>
+    <div class="card stat-card stat-anomaly">
+        <span class="stat-label">Request anomalies</span>
+        <p class="stat-value">{{ summary.anomalies }}</p>
+    </div>
+    <div class="card stat-card stat-danger">
+        <span class="stat-label">Blocklist candidates</span>
+        <p class="stat-value">{{ summary.blocklist_candidates }}</p>
+    </div>
+</section>
+
+        <section class="card">
+    <h2>Last seen IPs</h2>
+    {% if last_seen_ips %}
+        <table>
+            <thead>
+                <tr>
+                    <th>IP</th>
+                    <th>Last seen</th>
+                    <th>Example log line</th>
+                </tr>
+            </thead>
+            <tbody>
+                {% for item in last_seen_ips %}
+                    <tr>
+                        <td>{{ item.ip }}</td>
+                        <td>{{ item.last_seen }}</td>
+                        <td class="path-cell"><code>{{ item.line }}</code></td>
+                    </tr>
+                {% endfor %}
+            </tbody>
+        </table>
+    {% else %}
+        <p>No recent IP activity available.</p>
+    {% endif %}
+</section>
 
         <section class="grid-two">
             <article class="card">
