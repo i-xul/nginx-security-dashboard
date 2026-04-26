@@ -335,4 +335,65 @@ td.suspicious-path {
     font-size: 0.75rem;
     text-transform: uppercase;
     }
+
+    .last-7-card {
+    margin-bottom: 1.5rem;
+}
+
+.section-note {
+    color: #64748b;
+    font-size: 0.9rem;
+    margin-top: -0.25rem;
+}
+
+.mini-summary-grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 0.75rem;
+    margin: 1rem 0;
+}
+
+.mini-stat {
+    background: #f8fafc;
+    border: 1px solid #e5e7eb;
+    border-radius: 10px;
+    padding: 0.9rem;
+}
+
+.mini-stat span {
+    display: block;
+    color: #64748b;
+    font-size: 0.8rem;
+    text-transform: uppercase;
+    letter-spacing: 0.04em;
+    margin-bottom: 0.4rem;
+}
+
+.mini-stat strong {
+    font-size: 1.6rem;
+    color: #0f172a;
+}
+
+.entry-type {
+    display: inline-block;
+    margin-left: 0.5rem;
+    padding: 2px 6px;
+    border-radius: 6px;
+    background: #e2e8f0;
+    font-size: 0.75rem;
+    text-transform: uppercase;
+}
+
+.entry-time {
+    display: inline-block;
+    margin-left: 0.5rem;
+    color: #64748b;
+    font-size: 0.85rem;
+}
+
+@media (max-width: 900px) {
+    .mini-summary-grid {
+        grid-template-columns: 1fr;
+    }
+}
 }
