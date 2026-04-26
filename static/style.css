@@ -184,3 +184,137 @@ td.high-risk {
     color: black !important;
     font-weight: 900 !important;
 }
+
+/* === Dashboard polish === */
+
+.page-header {
+    border-bottom: 4px solid #334155;
+}
+
+.page-header h1 {
+    font-size: 2rem;
+    letter-spacing: -0.03em;
+}
+
+.card h2 {
+    margin-top: 0;
+    margin-bottom: 1rem;
+    font-size: 1.15rem;
+    color: #111827;
+}
+
+.summary-grid {
+    margin-bottom: 1.5rem;
+}
+
+.stat-card {
+    text-align: left;
+    border-left: 6px solid #cbd5e1;
+    padding: 1.25rem;
+}
+
+.stat-label {
+    display: block;
+    font-size: 0.8rem;
+    font-weight: 700;
+    color: #64748b;
+    text-transform: uppercase;
+    letter-spacing: 0.06em;
+    margin-bottom: 0.5rem;
+}
+
+.stat-value {
+    font-size: 2.35rem;
+    font-weight: 800;
+    line-height: 1;
+    margin: 0;
+    color: #0f172a;
+}
+
+.stat-total {
+    border-left-color: #64748b;
+}
+
+.stat-warning {
+    border-left-color: #f59e0b;
+}
+
+.stat-anomaly {
+    border-left-color: #8b5cf6;
+}
+
+.stat-danger {
+    border-left-color: #dc2626;
+}
+
+table {
+    font-size: 0.95rem;
+}
+
+tbody tr:hover {
+    background: #f8fafc;
+}
+
+th {
+    font-size: 0.8rem;
+    text-transform: uppercase;
+    letter-spacing: 0.04em;
+    color: #475569;
+}
+
+.high-risk,
+tr.high-risk td,
+td.high-risk {
+    background-color: #fee2e2 !important;
+    color: #991b1b !important;
+    font-weight: 700 !important;
+}
+
+.medium-risk,
+td.medium-risk {
+    background-color: #ffedd5 !important;
+    color: #9a3412 !important;
+    font-weight: 700 !important;
+}
+
+.suspicious-path,
+td.suspicious-path {
+    color: #b91c1c !important;
+    font-weight: 700 !important;
+}
+
+.log-list {
+    max-height: 420px;
+    overflow-y: auto;
+}
+
+.log-list code {
+    display: inline-block;
+    background: #f8fafc;
+    border: 1px solid #e5e7eb;
+    border-radius: 6px;
+    padding: 0.35rem 0.45rem;
+}
+
+@media (max-width: 900px) {
+    .page-header {
+        padding: 1.5rem 0;
+    }
+
+    .page-header h1 {
+        font-size: 1.6rem;
+    }
+
+    .stat-value {
+        font-size: 2rem;
+    }
+
+    table {
+        font-size: 0.85rem;
+    }
+
+    th,
+    td {
+        padding: 0.5rem;
+    }
+}
