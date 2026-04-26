@@ -253,6 +253,37 @@
             </article>
         </section>
 
+        <section class="grid-two">
+    <article class="card">
+        <h2>Recent suspicious activity</h2>
+        {% if recent_suspicious %}
+            <ul class="log-list">
+                {% for entry in recent_suspicious %}
+                    <li>
+                        <strong>{{ entry.ip }}</strong> →
+                        {{ entry.line }}
+                    </li>
+                {% endfor %}
+            </ul>
+        {% else %}
+            <p>No recent suspicious activity.</p>
+        {% endif %}
+    </article>
+
+    <article class="card">
+        <h2>Recent unknown / malformed requests</h2>
+        {% if recent_unknown %}
+            <ul class="log-list">
+                {% for line in recent_unknown %}
+                    <li><code>{{ line }}</code></li>
+                {% endfor %}
+            </ul>
+        {% else %}
+            <p>No recent unknown activity.</p>
+        {% endif %}
+    </article>
+</section>
+
         <section class="card">
             <h2>Unknown path examples</h2>
             {% if report.unknown_path_examples %}
