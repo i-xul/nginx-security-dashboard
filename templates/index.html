@@ -45,22 +45,29 @@
 </section>
 
         <section class="card">
-    <h2>Last seen IPs</h2>
+    <h2>Last seen IPs (recent activity)</h2>
+
     {% if last_seen_ips %}
         <table>
             <thead>
                 <tr>
                     <th>IP</th>
                     <th>Last seen</th>
-                    <th>Example log line</th>
+                    <th>Risk</th>
                 </tr>
             </thead>
             <tbody>
                 {% for item in last_seen_ips %}
                     <tr>
-                        <td>{{ item.ip }}</td>
+                        <td><strong>{{ item.ip }}</strong></td>
                         <td>{{ item.last_seen }}</td>
-                        <td class="path-cell"><code>{{ item.line }}</code></td>
+                        <td>
+                            {% if "admin" in item.line or "login" in item.line or "passwd" in item.line %}
+                                <span class="high-risk">high</span>
+                            {% else %}
+                                <span class="medium-risk">normal</span>
+                            {% endif %}
+                        </td>
                     </tr>
                 {% endfor %}
             </tbody>
