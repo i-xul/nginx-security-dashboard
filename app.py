@@ -112,13 +112,13 @@ def index():
 recent_suspicious = report.get("suspicious_lines", [])[-10:]
 recent_unknown = report.get("unknown_path_examples", [])[-10:]
     
-    return render_template(
-        "index.html",
-        report=sorted_report,
-        summary=summary,
-        recent_suspicious=recent_suspicious,
-        recent_unknown=recent_unknown,
-    )
+return render_template(
+    "index.html",
+    report=sorted_report,
+    summary=summary,
+    recent_suspicious=recent_suspicious,
+    recent_unknown=recent_unknown,
+)
 
 
 if __name__ == "__main__":
