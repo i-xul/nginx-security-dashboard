@@ -6,6 +6,7 @@ import re
 from datetime import datetime
 from pathlib import Path
 from typing import Any
+from typing import Optional
 
 from flask import Flask, render_template
 
@@ -44,7 +45,7 @@ def count_request_anomalies(report: dict[str, Any]) -> int:
     anomalies = report.get("request_anomalies", {})
     return sum(anomalies.values()) if isinstance(anomalies, dict) else 0
 
-def parse_nginx_timestamp(line: str) -> datetime | None:
+def parse_nginx_timestamp(line: str) -> Optional[datetime]:
     """Parse timestamp from an Nginx access log line."""
     match = re.search(r"\[([^\]]+)\]", line)
     if not match:
