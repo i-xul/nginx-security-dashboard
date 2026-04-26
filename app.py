@@ -109,10 +109,15 @@ def index():
         "unknown_path_examples": report.get("unknown_path_examples", []),
     }
 
+recent_suspicious = report.get("suspicious_lines", [])[-10:]
+recent_unknown = report.get("unknown_path_examples", [])[-10:]
+    
     return render_template(
         "index.html",
         report=sorted_report,
         summary=summary,
+        recent_suspicious=recent_suspicious,
+        recent_unknown=recent_unknown,
     )
 
 
