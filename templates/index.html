@@ -73,9 +73,9 @@
                 <li>
                     <strong>{{ entry.ip }}</strong>
                     {% if entry.type == "suspicious" %}
-    <span class="entry-type high-risk">suspicious</span>
+    <span class="entry-type high-risk">🔴 suspicious</span>
 {% else %}
-    <span class="entry-type medium-risk">anomaly</span>
+    <span class="entry-type medium-risk">🟠 anomaly</span>
 {% endif %}
                     <span class="entry-time">{{ entry.last_seen }}</span>
                     <br>
