@@ -72,7 +72,11 @@
             {% for entry in last_7_days.entries %}
                 <li>
                     <strong>{{ entry.ip }}</strong>
-                    <span class="entry-type">{{ entry.type }}</span>
+                    {% if entry.type == "suspicious" %}
+    <span class="entry-type high-risk">suspicious</span>
+{% else %}
+    <span class="entry-type medium-risk">anomaly</span>
+{% endif %}
                     <span class="entry-time">{{ entry.last_seen }}</span>
                     <br>
                     <code>{{ entry.line }}</code>
