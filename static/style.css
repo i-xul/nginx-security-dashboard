@@ -53,7 +53,18 @@ body {
 }
 
 .stat-card {
-    text-align: center;
+    text-align: left;
+    border-left: 6px solid #cbd5e1;
+}
+
+.stat-label {
+    display: block;
+    font-size: 0.85rem;
+    font-weight: 700;
+    color: #52616b;
+    text-transform: uppercase;
+    letter-spacing: 0.04em;
+    margin-bottom: 0.5rem;
 }
 
 .stat-card h2 {
@@ -62,9 +73,25 @@ body {
 }
 
 .stat-value {
-    font-size: 2rem;
-    font-weight: bold;
+    font-size: 2.2rem;
+    font-weight: 800;
     margin: 0;
+}
+
+.stat-total {
+    border-left-color: #64748b;
+}
+
+.stat-warning {
+    border-left-color: #f59e0b;
+}
+
+.stat-anomaly {
+    border-left-color: #8b5cf6;
+}
+
+.stat-danger {
+    border-left-color: #dc2626;
 }
 
 .error-card {
